@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="utf-8">
+	<meta name = "viewport" content="width = device-width, initial-scale = 1.0">
+	<title>Login</title>
+	<link rel="stylesheet" href="estilos_login.css">
+	<link rel="icon" type="image/jpg" href="logito.ico">
 </head>
 <body>
-    <h1>Hola mundo</h1>
-    <h4>cambio</h4>
+	<div class="login-box">
+		<img class="avatar" src="grulla.png" alt="logo U">
+	<form action = "sesion.php" method = "POST">
+		<input type="text" name="user" placeholder="Ingrese su usuario">
+		<br><br>
+		<input type="password" name="contra" placeholder="Ingrese su contraseña">
+		<br><br>
+		<input type="submit" value="Ingresar"></input>
+	</form>
 </body>
 </html>

@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap'); /*tipo de letra*/
+
+body{
+		background: url(http://www.counillanos.com.co/img/vision.jpg);
+		background-size: 100vw 100vh;
+		background-repeat: no-repeat;
+	}
+
+	.login-box {
+  width: 320px;
+  height: 420px;
+  background: #000;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 70px 30px;
+}
+
+.login-box .avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 50px);
+}
+
+.login-box h1 {
+  margin: 0;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.login-box label {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  display: block;
+}
+
+.login-box input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.login-box input[type="text"], .login-box input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.login-box input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  background: #b80f22;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+}
+
+.login-box input[type="submit"]:hover {
+  cursor: pointer;
+  background: #ffc107;
+  color: #000;
+}
+
+.login-box a {
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: darkgrey;
+}
+
+.login-box a:hover {
+  color: #fff;
+}
+
+.btn{
+		border-radius: 3px;
+		display: inline-block;
+		padding: 5px 2px;
+		text-decoration: none;
+		text-shadow: 0 1px 0 rgba(255, 255, 255,0.3);
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+	
+	}
+
+	.btn-red{
+		color: white;
+		background-color: #b51509;
+	}
+	.btn-red:hover{
+		background-color: #8c1007;
+	}
+	.btn-red:active{
+		background-color: #750d06;
+	}
+
+    /*tr:hover{
+		background-color: darkred ;
+		color: white;
+	}*/
+
+	/*Fin de Menù lateral*/
