@@ -16,5 +16,12 @@
     echo $temp2->nomb_cur;
     }
     ?>
+    <h2>Materias disponibles.</h2>
+    <nav class="navegacion">
+        <ul class="menu">
+            <li><a href="#">Ecuaciones</a></li>
+            <li><a href="#">Fisica</a></li>
+            <li><a href="#">Bases</a></li>
+            <li><a href="#">Redes</a></li>
 </body>
 </html>
