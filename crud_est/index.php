@@ -21,6 +21,12 @@
           </div>
       </div>
 
+<?php
+include_once "conexion.php";
+$consulta = "select * from estudiantes";
+$resultado = pg_query($consulta);
+?>
+
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-7">
@@ -39,13 +45,19 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+                                while($obj = pg_fetch_object($resultado)){
+                            ?>
                             <tr>
                                 <td scope="row">1</td>
-                                <td>A3</td>
-                                <td>Juan Vigoya</td>
+                                <td><?php echo $obj->cod_est;?></td>
+                                <td><?php echo $obj->nombre_est;?></td>
                                 <td>Editar</td>
                                 <td>Eliminar</td>
                             </tr>
+                            <?php
+                                }
+                            ?>
                         </tbody>
                     </table>
                     
