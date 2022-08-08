@@ -22,9 +22,13 @@
       </div>
 
 <?php
-include_once "conexion.php";
+include_once ("../conexion.php");
 $consulta = "select * from estudiantes";
 $resultado = pg_query($consulta);
+while($obj = pg_fetch_object($resultado)){
+    echo $obj->cod_est;
+    echo $obj->nombre_est;
+}
 ?>
 
 <div class="container mt-5">
