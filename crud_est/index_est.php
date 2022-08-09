@@ -1,3 +1,11 @@
+<?php 
+    include_once ("../conexion.php");
+    session_start();
+    $curso = $_SESSION['curso'];
+    $año = $_SESSION['año'];
+    $periodo = $_SESSION['periodo'];
+ ?>
+
 <!doctype html>
 <html lang="es">
   <head>
@@ -21,15 +29,6 @@
           </div>
       </div>
 
-<?php
-include_once ("../conexion.php");
-$consulta = "select * from estudiantes";
-$resultado = pg_query($consulta);
-while($obj = pg_fetch_object($resultado)){
-    echo $obj->cod_est;
-    echo $obj->nombre_est;
-}
-?>
 
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -50,6 +49,8 @@ while($obj = pg_fetch_object($resultado)){
                         </thead>
                         <tbody>
                             <?php
+                                $consulta = "select * from inscripciones i join estudiantes e on e.cod_est=i.cod_est where cod_cur = '$curso' and year = '$año' and periodo = '$periodo'";
+                                $resultado = pg_query($consulta);
                                 while($obj = pg_fetch_object($resultado)){
                             ?>
                             <tr>
@@ -73,14 +74,16 @@ while($obj = pg_fetch_object($resultado)){
                 <div class="card-header">
                     Ingresar datos:
                 </div>
-                <form action="" class="p-4" method="POST" action="registrar.php">
-                <div class="mb-3">
-                        <label class="form-label">Codigo: </label>
-                        <input type="text" class="form-control" name="txtNombre" autofocus>
-                    </div>
+                <form class="p-4" method="POST" action="registrar.php">
                     <div class="mb-3">
-                        <label class="form-label">Nombre: </label>
-                        <input type="text" class="form-control" name="txtNombre" autofocus>
+                    <select required name="codigo">
+                    <?php 
+                        $seleccionado= pg_query("SELECT * FROM estudiantes where cod_est not in (select cod_est from inscripciones where cod_cur='$curso' and year='$año' and periodo ='$periodo');");
+                        while($obj = pg_fetch_object($seleccionado)){?>
+                         <option value="<?php echo $obj->cod_est;?>"><?php echo $obj->cod_est,'   ||   ', $obj->nombre_est ?></option>
+                    <?php }
+                        ?>
+                    </select>
                     </div>
                     <div class="d-grid">
                         <input type="submit" class="btn btn-primary" value="Registrar">

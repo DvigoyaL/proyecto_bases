@@ -1,19 +1,16 @@
 <?php 
-$host = "ziggy.db.elephantsql.com";
-$dbname = "jebdbwqd";
-$user = "jebdbwqd";
-$password = "fSMRqdoDfrQeJMY6ig7W2ks2NsQHG9bm";
-$conexion = pg_connect("host =$host dbname = $dbname user = $user password = $password");
+include_once("conexion.php");
 
 $usuario = $_POST['user'];
 $contraseña = $_POST['contra'];
 
 $queryProfesores = "SELECT * from docente WHERE nom_doc = '$usuario' AND clave = '$contraseña'";
-$consultaProfesores = pg_query($conexion, $queryProfesores);
+$obj = pg_fetch_object(pg_query($queryProfesores));
+$consultaProfesores = pg_query($queryProfesores);
 
 if(pg_num_rows($consultaProfesores) > 0){
 	session_start();
-	$_SESSION['profesor'] = $usuario;
+	$_SESSION['profesor'] = $obj->cod_doc;
 	header("location: materias.php");
 	exit();
 } else {

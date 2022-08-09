@@ -1,3 +1,9 @@
+<?php
+    include_once("conexion.php");
+    session_start();
+    $profesor = $_SESSION['profesor'];
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,20 +16,22 @@
 </head>
 <body>
 <div class="login-box">
-    <?php
-    include_once("conexion.php");
-    session_start();
-    $_SESSION['ecuaciones'] = "Ecuaciones";
-    $_SESSION['fisica'] = "Fisica";
-    $_SESSION['bases'] = "Bases";
-    $_SESSION['redes'] = "Redes";
-    ?>
     <h2>Materias disponibles.</h2>
-    <nav class="navegacion">
-        <ul class="menu">
-            <li><button type="button" class="btn btn-primary">Ecuaciones</button></li>
-            <li><button type="button" class="btn btn-primary">Fisica</button></li>
-            <li><button type="button" class="btn btn-primary">Bases</button></li>
-            <li><button type="button" class="btn btn-primary">Redes</button></li>
+    <form action="cursoselecc/guardarinfor.php" method="POST">
+        <select required name="elegircurso" id="curso">
+            <?php 
+                $seleccionado= pg_query("select * from cursos where cod_doc='$profesor'");
+                while($obj = pg_fetch_object($seleccionado)){?>
+                <option value="<?php echo $obj->cod_cur;?>"><?php echo $obj->nomb_cur ?></option>
+           <?php }
+             ?>
+        </select>
+        <input required type="number" id="año" name="elegiraño" min="2020" max="2023" placeholder="Año">
+        <select required name="elegirperiodo" id="periodo">
+            <option value="1">Periodo I</option>
+            <option value="2">Periodo II</option>
+        </select>
+        <button type="submit">Ver listado</button>
+    </form>
 </body>
 </html>
