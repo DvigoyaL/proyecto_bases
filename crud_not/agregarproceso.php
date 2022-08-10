@@ -13,8 +13,10 @@ $tot_porcent = pg_fetch_object($consulta);
 $suma = $porcentaje + $tot_porcent->sumando - $porcentviejo->porcentaje;
 if($suma > 100){
 	header('location:agregarnota.php?mensaje=error');
+    exit();
 }else{
-    pg_query("insert into (desc_nota,porcentaje,posicion,cod_cur) values ('$desc_nota',$porcentaje,$posicion,'$cod_cur')");
+    pg_query("insert into notas (desc_nota,porcentaje,posicion,cod_cur) values ('$desc_nota',$porcentaje,$posicion,'$cod_cur')");
     header('location:index_notas.php?mensaje=registrado');
+    exit();
 }
 ?>
