@@ -28,7 +28,7 @@ $objnota = pg_fetch_object($consulta);
                 <!-- fin alerta -->
             <div class="card">
                 <div class="card-header">
-                    Editar datos:
+                    Ingrese datos:
                 </div>
                 <form class="p-4" method="POST" action="agregarproceso.php">
                     <div class="mb-3">
@@ -37,11 +37,11 @@ $objnota = pg_fetch_object($consulta);
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Porcentaje: </label>
-                        <input type="number" class="form-control" name="porcent" max="100" autofocus required>
+                        <input type="number" class="form-control" name="porcent" min = "1" max="100" autofocus required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Posicion: </label>
-                        <input type="number" class="form-control" name="posic" max="30" autofocus required>
+                        <input type="number" class="form-control" name="posic" min = "1" max="30" autofocus required>
                     </div>
                     <div class="d-grid">
                         <input type="hidden" name="codigo">

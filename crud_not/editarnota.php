@@ -3,7 +3,7 @@ include_once('../conexion.php');
 include_once('../crud_est/template/footer.php');
 include_once('../crud_est/template/header.php');
 session_start();
-$cod_not=$_GET['nota'];
+$cod_not = $_GET['nota'];
 $_SESSION['cod_nota'] = $cod_not;
 $curso = $_SESSION['curso'];
 $consulta = pg_query("select * from notas where nota='$cod_not' and cod_cur='$curso'");
@@ -39,12 +39,12 @@ $objnota = pg_fetch_object($consulta);
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Porcentaje: </label>
-                        <input type="number" class="form-control" name="porcent" max="100" autofocus required
+                        <input type="number" class="form-control" name="porcent" min = "1" max="100" autofocus required
                         value="<?php echo $objnota->porcentaje; ?>">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Posicion: </label>
-                        <input type="number" class="form-control" name="posic" max="30" autofocus required
+                        <input type="number" class="form-control" name="posic" min = "1" max="30" autofocus required
                         value="<?php echo $objnota->posicion; ?>">
                     </div>
                     <div class="d-grid">
