@@ -1,5 +1,6 @@
 <?php
 include_once("../conexion.php");
+session_start();
 $curso = $_SESSION['curso'];
 $codigo = $_POST['codigo'];
 $año = $_SESSION['año'];

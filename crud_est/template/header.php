@@ -15,7 +15,7 @@
           <div class="row">
               <div class="col-md">
                   <header class="py-3">
-                      <h3 class="text-center">CRUD PHP con Bootstrap 5</h3>
+                      <h3 class="text-center">Registro de notas</h3>
                   </header>
               </div>
           </div>
