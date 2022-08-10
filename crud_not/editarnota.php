@@ -39,12 +39,12 @@ $objnota = pg_fetch_object($consulta);
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Porcentaje: </label>
-                        <input type="number" class="form-control" name="porcent" autofocus required
+                        <input type="number" class="form-control" name="porcent" max="100" autofocus required
                         value="<?php echo $objnota->porcentaje; ?>">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Posicion: </label>
-                        <input type="number" class="form-control" name="posic" autofocus required
+                        <input type="number" class="form-control" name="posic" max="30" autofocus required
                         value="<?php echo $objnota->posicion; ?>">
                     </div>
                     <div class="d-grid">

@@ -24,10 +24,21 @@
                 ?> 
 
                 <?php 
-                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado'){
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'editado'){
                 ?>
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                 <strong>Editado!</strong> Nota editada correctamente.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php 
+                }
+                ?> 
+
+                <?php 
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'registrado'){
+                ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Añadido!</strong> Nota añadida correctamente.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php 
