@@ -6,5 +6,5 @@ $curso = $_SESSION['curso'];
 $año = $_SESSION['año'];
 $periodo = $_SESSION['periodo'];
 pg_query("delete from inscripciones where cod_cur='$curso' and cod_est='$cod_est' and year='$año' and periodo='$periodo'");
-header('location:index_est.php');
+header('location:index_est.php?mensaje=eliminado');
 ?>

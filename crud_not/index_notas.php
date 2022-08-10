@@ -11,6 +11,30 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-7">
+            <!-- inicio alerta -->
+                <?php 
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado'){
+                ?>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Eliminado!</strong> Nota eliminada.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php 
+                }
+                ?> 
+
+                <?php 
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado'){
+                ?>
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>Editado!</strong> Nota editada correctamente.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php 
+                }
+                ?> 
+
+                <!-- fin alerta -->
             <div class="card">
                 <div class="card-header">
                     Agenda notas: <?php echo $nomb_cur->nomb_cur ?>
@@ -36,7 +60,7 @@
                                 <td><?php echo $obj->desc_nota;?></td>
                                 <td><?php echo $obj->porcentaje;?> % </td>
                                 <td class= "text-warning"><a href="editarnota.php?nota=<?php echo $obj->nota?>"><i class="bi bi-pencil-square"></i></a></td>
-                                <td class= "text-danger"><a href="borrarnota.php?nota=<?php echo $obj->nota;?>"><i class="bi bi-person-dash"></i></a></td>
+                                <td class= "text-danger"><a href="borrarnota.php?nota=<?php echo $obj->nota;?>"><i class="bi bi-trash"></i></a></td>
                                 <td class= "text-info"><a href=""><i class="bi bi-clipboard-plus"></i></a></td>
                             </tr>
                             <?php

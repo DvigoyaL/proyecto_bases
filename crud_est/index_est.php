@@ -12,6 +12,41 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-7">
+            <!-- inicio alerta -->
+                <?php 
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado'){
+                ?>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Eliminado!</strong> El estudiante fue eliminado.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php 
+                }
+                ?> 
+
+                <?php 
+                if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'registrado'){
+                ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Inscrito!</strong> Se inscribio el estudiante seleccionado.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php 
+                }
+                ?>  
+
+                <?php 
+                if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'repetido'){
+                ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Inconsistencia!</strong> El estudiante se encuentra ya inscrito.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php 
+                }
+                ?>  
+
+                <!-- fin alerta -->
             <div class="card">
                 <div class="card-header">
                     Lista de estudiantes inscritos
