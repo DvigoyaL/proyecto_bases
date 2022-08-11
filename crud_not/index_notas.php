@@ -2,7 +2,6 @@
     include_once ("../conexion.php");
     include_once ("../crud_est/template/header.php");
     include_once ("../crud_est/template/footer.php");
-    session_start();
     $curso = $_SESSION['curso'];
     $consul_ncur = pg_query("select nomb_cur from cursos where cod_cur = '$curso'");
     $nomb_cur = pg_fetch_object($consul_ncur);

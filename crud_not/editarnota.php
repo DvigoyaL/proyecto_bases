@@ -2,7 +2,6 @@
 include_once('../conexion.php');
 include_once('../crud_est/template/footer.php');
 include_once('../crud_est/template/header.php');
-session_start();
 $cod_not = $_SESSION['nota'];
 $curso = $_SESSION['curso'];
 $consulta = pg_query("select * from notas where nota='$cod_not' and cod_cur='$curso'");

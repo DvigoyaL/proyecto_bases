@@ -2,7 +2,6 @@
     include_once("../conexion.php");
     include_once("../crud_est/template/header.php");
     include_once("../crud_est/template/footer.php");
-    session_start();
     $cod_cal = $_GET['cal'];
     $_SESSION['cod_cal'] = $cod_cal;
     $seleccionado= pg_query("SELECT * FROM estudiantes e join calificaciones c on c.cod_est = e.cod_est where cod_cal = '$cod_cal'");

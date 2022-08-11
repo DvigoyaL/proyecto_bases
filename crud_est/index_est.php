@@ -2,7 +2,6 @@
     include_once ("../conexion.php");
     include_once ("template/header.php");
     include_once ("template/footer.php");
-    session_start();
     $curso = $_SESSION['curso'];
     $año = $_SESSION['año'];
     $periodo = $_SESSION['periodo'];

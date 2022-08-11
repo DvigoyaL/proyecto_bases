@@ -2,7 +2,6 @@
     include_once("../conexion.php");
     include_once("../crud_est/template/header.php");
     include_once("../crud_est/template/footer.php");
-    session_start();
     $nota = $_SESSION['cod_nota'];
     $curso = $_SESSION['curso'];
     $año = $_SESSION['año'];

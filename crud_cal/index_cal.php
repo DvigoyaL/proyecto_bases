@@ -2,7 +2,6 @@
 include_once("../conexion.php");
 include_once("../crud_est/template/header.php");
 include_once("../crud_est/template/footer.php");
-session_start();
 $nota = $_SESSION['cod_nota'];
 $curso = $_SESSION['curso'];
 $año = $_SESSION['año'];
@@ -12,7 +11,7 @@ $objnota = pg_fetch_object($connota);
 ?>
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-md-7">
+        <div class="col-md-9">
                 <!-- inicio alerta -->
             <?php 
                     if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'eliminado'){
