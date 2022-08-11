@@ -2,6 +2,8 @@
 include_once("conexion.php");
 
 $usuario = $_POST['user'];
+session_start();
+$_SESSION['nomb_doc'] = $usuario;
 $contraseña = $_POST['contra'];
 
 $queryProfesores = "SELECT * from docente WHERE nom_doc = '$usuario' AND clave = '$contraseña'";
