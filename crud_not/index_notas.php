@@ -70,7 +70,7 @@
                                 <td><?php echo $obj->posicion;?></td>
                                 <td><?php echo $obj->desc_nota;?></td>
                                 <td><?php echo $obj->porcentaje;?> % </td>
-                                <td class= "text-warning"><a href="editarnota.php?nota=<?php echo $obj->nota;?>"><i class="bi bi-pencil-square"></i></a></td>
+                                <td class= "text-warning"><a href="getcodnota.php?nota=<?php echo $obj->nota;?>"><i class="bi bi-pencil-square"></i></a></td>
                                 <td class= "text-danger"><a href="borrarnota.php?nota=<?php echo $obj->nota;?>"><i class="bi bi-trash"></i></a></td>
                                 <td class= "text-info"><a href="../crud_cal/getnota.php?nota=<?php echo $obj->nota;?>"><i class="bi bi-clipboard-plus"></i></a></td>
                             </tr>

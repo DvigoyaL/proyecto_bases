@@ -9,13 +9,6 @@
     $periodo = $_SESSION['periodo'];
 ?>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.js"></script>
-
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-4">
@@ -40,6 +33,7 @@
                         <input type="number" class="form-control" name="calificacion" min = "1" max="5" step="0.1" autofocus required>
                     </div>
                     <div class="mb-3">
+                    <label class="form-label">Fecha de la calificación: </label>
                     <input type="date" id="start" name="fecha" value="<?php echo $año?>-01-29" min="<?php echo $año?>-01-01" max="<?php echo $año?>-12-31">
                     </div>
                     <div class="d-grid">

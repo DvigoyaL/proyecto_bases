@@ -1,7 +1,7 @@
 <?php
 include_once("../conexion.php");
 session_start();
-$cod_nota= $_SESSION['cod_nota'];
+$cod_nota= $_SESSION['nota'];
 $cod_cur = $_SESSION['curso'];
 $desc_nota = $_POST['desc'];
 $porcentaje = $_POST['porcent'];

@@ -74,7 +74,7 @@ $objnota = pg_fetch_object($connota);
                                 <td><?php echo $obj->cod_est;?></td>
                                 <td><?php echo $obj->nombre_est;?></td>
                                 <td><?php echo $obj->valor;?></td>
-                                <td class= "text-warning"><a href="editarnota.php"><i class="bi bi-pencil-square"></i></a></td>
+                                <td class= "text-warning"><a href="editarcal.php?cal=<?php echo $obj->cod_cal;?>"><i class="bi bi-pencil-square"></i></a></td>
                                 <td class= "text-danger"><a href="../crud_cal/borrarcal.php?cal=<?php echo $obj->cod_cal;?>"><i class="bi bi-trash"></i></a></td>
                             </tr>
                             <?php
