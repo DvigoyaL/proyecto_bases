@@ -18,15 +18,8 @@
                 </div>
                 <form class="p-4" method="POST" action="editarcalproceso.php">
                     <div class="mb-3">
-                    <label class="form-label">Estudiante: </label>
-                    <select required name="codigo_est" class="form-select" disabled>
-                    <?php 
-                        $seleccionado= pg_query("SELECT * FROM estudiantes e join calificaciones c on c.cod_est = e.cod_est where cod_cal = '$cod_cal'");
-                        while($obj = pg_fetch_object($seleccionado)){?>
-                         <option value="<?php echo $obj->cod_est;?>"><?php echo $obj->cod_est,'   ||   ', $obj->nombre_est ?></option>
-                    <?php }
-                        ?>
-                    </select>
+                    <input class="form-control" type="text" value="<?php echo $obj2->cod_est,'   ||   ', $obj2->nombre_est ?>" readonly>
+                    <input type="hidden" name ="codigo_est" value="<?php echo $obj2->cod_est ?>">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Ingrese nueva calificación: </label>
