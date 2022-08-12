@@ -16,7 +16,7 @@ $nombre = $_SESSION['nomb_doc'];
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="../materias.php">
     <img src="https://w7.pngwing.com/pngs/409/621/png-transparent-computer-icons-avatar-male-user-profile-others-logo-monochrome-silhouette.png" alt="Logo" style="width:40px;" class="rounded-pill">
     <?php echo $nombre ?> </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
