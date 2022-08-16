@@ -95,6 +95,10 @@ $objnota = pg_fetch_object($connota);
                     <div class="d-grid">
                         <a href="../crud_cal/agregarcal.php" class="btn btn-success" role="button" aria-pressed="true">Adicionar calificación</a>
                     </div>
+                    <br>
+                    <div class="d-grid">
+                        <a href="../crud_not/index_notas.php" class="btn btn-dark" role="button" aria-pressed="true">Volver</a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -58,16 +58,16 @@
                                 $consultadefinitiva = pg_query("select sum(valor*(porcentaje)/100)as definitiva, cod_est from calificaciones c join notas n on c.nota=n.nota where c.cod_cur = '$curso' and c.year = '$año' and periodo='$periodo' group by cod_est");
                                 $cont = 0;
                                 while($cod_est = pg_fetch_object($consultadefinitiva)){
+                                    ?><td><?php echo $cod_est -> cod_est; ?></td><?php 
                                     while($obj = pg_fetch_object($consulta3)){ 
                             ?>  
-                                    <td><?php echo $cod_est -> cod_est; ?></td>
-                                    <td><?php if($cont < pg_num_rows($contnotas)){ $cont = $cont + 1; echo $obj->valor; echo $cont?></td> 
+                                    <?php if($cont < pg_num_rows($contnotas)){ ?> <td> <?php $cont = $cont + 1; echo $obj->valor; echo $cont?></td> 
                             <?php
                                             }else{ $cont = 1?> <td><?php echo $cod_est->definitiva;?></td> <tr></tr> <td><?php echo $obj->valor;?></td>
                                                                     <?php
                                                              }    
                                                         }
-                                                    }    
+                                                    }      
                                 ?>
                         </tbody>
                     </table>

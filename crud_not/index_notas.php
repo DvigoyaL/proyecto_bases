@@ -93,7 +93,11 @@
                         <a href="agregarnota.php" class="btn btn-success" role="button" aria-pressed="true">Adicionar nota</a>
                     </div> <br>
                     <div class="d-grid">
-                        <a href="reportnotas.php" class="btn btn-dark" role="button" aria-pressed="true">Reporte notas</a>
+                        <a href="reportnotas.php" class="btn btn-secondary" role="button" aria-pressed="true">Reporte notas</a>
+                    </div>
+                    <br>
+                    <div class="d-grid">
+                        <a href="../crud_est/index_est.php" class="btn btn-dark" role="button" aria-pressed="true">Volver</a>
                     </div>
                 </div>
             </div>
