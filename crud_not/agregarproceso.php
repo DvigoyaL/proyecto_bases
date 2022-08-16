@@ -9,12 +9,18 @@ $posicion = $_POST['posic'];
 $consulta = pg_query("select SUM(porcentaje) as sumando from notas where cod_cur = '$cod_cur'");
 $tot_porcent = pg_fetch_object($consulta);
 $suma = $porcentaje + $tot_porcent->sumando;
-if($suma > 100){
-	header('location:agregarnota.php?mensaje=error');
+$consultapos = pg_query("select * from (select posicion from notas where posicion = $posicion) as tabla where posicion = any (select posicion from notas where cod_cur = '$cod_cur') ");
+if(pg_num_rows($consultapos) > 0){
+    header('location:editarnota.php?mensaje=error2');
     exit();
 }else{
-    pg_query("insert into notas (desc_nota,porcentaje,posicion,cod_cur) values ('$desc_nota',$porcentaje,$posicion,'$cod_cur')");
-    header('location:index_notas.php?mensaje=registrado');
-    exit();
+    if($suma > 100){
+        header('location:agregarnota.php?mensaje=error');
+        exit();
+    }else{
+        pg_query("insert into notas (desc_nota,porcentaje,posicion,cod_cur) values ('$desc_nota',$porcentaje,$posicion,'$cod_cur')");
+        header('location:index_notas.php?mensaje=registrado');
+        exit();
+    }
 }
 ?>
