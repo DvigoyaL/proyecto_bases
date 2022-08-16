@@ -10,7 +10,7 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
-                    Materias disponibles.:
+                    Materias disponibles:
                 </div>
                 <form class="p-4" method="POST" action="cursoselecc/guardarinfor.php">
                     <div class="mb-3">

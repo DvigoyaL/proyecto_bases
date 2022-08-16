@@ -34,6 +34,17 @@
                 ?> 
 
                 <?php 
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error'){
+                ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Imposible agregar nota!</strong> Porcentaje máximo alcanzado.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php 
+                }
+                ?> 
+
+                <?php 
                     if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'registrado'){
                 ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -80,6 +91,9 @@
                     </table>
                     <div class="d-grid">
                         <a href="agregarnota.php" class="btn btn-success" role="button" aria-pressed="true">Adicionar nota</a>
+                    </div> <br>
+                    <div class="d-grid">
+                        <a href="reportnotas.php" class="btn btn-dark" role="button" aria-pressed="true">Reporte notas</a>
                     </div>
                 </div>
             </div>

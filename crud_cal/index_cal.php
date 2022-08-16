@@ -46,6 +46,17 @@ $objnota = pg_fetch_object($connota);
                 }
                 ?> 
 
+                <?php 
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error'){
+                ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Registro terminado!</strong> No hay estudiantes a registrar calificaciones.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php 
+                }
+                ?> 
+
                 <!-- fin alerta -->
             <div class="card">
                 <div class="card-header">
@@ -65,7 +76,7 @@ $objnota = pg_fetch_object($connota);
                         </thead>
                         <tbody>
                             <?php
-                                $consulta = "select * from calificaciones c join estudiantes e on c.cod_est=e.cod_est where cod_cur = '$curso' and nota = $nota and year = '$año' and periodo = '$periodo'";
+                                $consulta = "select * from calificaciones c join estudiantes e on c.cod_est=e.cod_est where cod_cur = '$curso' and nota = $nota and year = '$año' and periodo = '$periodo' order by c.cod_est";
                                 $resultado = pg_query($consulta);
                                 while($obj = pg_fetch_object($resultado)){
                             ?>

@@ -6,6 +6,13 @@
     $curso = $_SESSION['curso'];
     $año = $_SESSION['año'];
     $periodo = $_SESSION['periodo'];
+    $validacion = pg_query("select count(*) as cont from (select e.cod_est,e.nombre_est from estudiantes e join inscripciones 
+                        i on e.cod_est = i.cod_est where cod_cur ='$curso' and year='$año' and periodo = '$periodo') as tabla where 
+                        tabla.cod_est not in (select cod_est from calificaciones where nota = $nota and cod_cur ='$curso' and year='$año' and periodo = '$periodo')");
+    $objval = pg_fetch_object($validacion);
+    if( $objval->cont < 1){
+        header('location:index_cal.php?mensaje=error');
+    }
 ?>
 
 <div class="container mt-5">
@@ -20,9 +27,11 @@
                     <label class="form-label">Seleccione estudiante: </label>
                     <select required name="codigo_est" class="form-select">
                     <?php 
-                        $seleccionado= pg_query("select * from (select e.cod_est,e.nombre_est from estudiantes e join inscripciones i on e.cod_est = i.cod_est where cod_cur ='$curso' and year='$year' and periodo = '$periodo') as tabla where tabla.cod_est not in (select cod_est from calificaciones where nota = $nota and cod_cur ='$curso' and year='$año' and periodo = '$periodo')");
+                        $seleccionado= pg_query("select * from (select e.cod_est,e.nombre_est from estudiantes e join inscripciones 
+                        i on e.cod_est = i.cod_est where cod_cur ='$curso' and year='$año' and periodo = '$periodo') as tabla where 
+                        tabla.cod_est not in (select cod_est from calificaciones where nota = $nota and cod_cur ='$curso' and year='$año' and periodo = '$periodo')");
                         while($obj = pg_fetch_object($seleccionado)){?>
-                         <option value="<?php echo $obj->cod_est;?>"><?php echo $obj->cod_est,'   ||   ', $obj->nombre_est ?></option>
+                         <option value="<?php echo $obj->cod_est;?>"><?php echo $obj->cod_est,'   ||   ', $obj->nombre_est; ?></option>
                     <?php }
                         ?>
                     </select>

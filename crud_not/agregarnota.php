@@ -5,7 +5,13 @@ include_once('../crud_est/template/header.php');
 $cod_nota= $_SESSION['cod_nota'];
 $curso = $_SESSION['curso'];
 $consulta = pg_query("select * from notas where nota='$cod_nota' and cod_cur='$curso'");
+$porcentajetot = pg_query("select sum(porcentaje) as suma from notas where cod_cur='$curso'");
+$objporcent = pg_fetch_object($porcentajetot);
 $objnota = pg_fetch_object($consulta);
+if($objporcent->suma > 99){
+    header('location:index_notas.php?mensaje=error');
+    exit();
+}
 ?>
 
 <div class="container mt-5">
@@ -23,6 +29,16 @@ $objnota = pg_fetch_object($consulta);
                 <?php 
                 }
                 ?> 
+                <?php 
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error2'){
+                ?>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Inconsistencia!</strong> La posición escogida ya esta ocupada.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php 
+                }
+                ?>
 
                 <!-- fin alerta -->
             <div class="card">

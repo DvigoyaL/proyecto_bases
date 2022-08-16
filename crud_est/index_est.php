@@ -64,15 +64,17 @@
                             <?php
                                 $consulta = "select * from inscripciones i join estudiantes e on e.cod_est=i.cod_est where cod_cur = '$curso' and year = '$año' and periodo = '$periodo'";
                                 $resultado = pg_query($consulta);
+                                $contador = 1;
                                 while($obj = pg_fetch_object($resultado)){
                             ?>
                             <tr>
-                                <td scope="row">1</td>
+                                <td scope="row"><?php echo $contador ?></td>
                                 <td><?php echo $obj->cod_est;?></td>
                                 <td><?php echo $obj->nombre_est;?></td>
                                 <td class= "text-danger"><a href="eliminar.php?cod_est=<?php echo $obj->cod_est;?>"><i class="bi bi-person-dash"></i></a></td>
                             </tr>
                             <?php
+                                $contador = $contador + 1;
                                 }
                             ?>
                         </tbody>
@@ -99,9 +101,11 @@
                     </div>
                     <div class="d-grid">
                         <input type="submit" class="btn btn-primary" value="Inscribir">
+                    </div> <br>
+                    <div class="d-grid">
+                        <a href="../crud_not/index_notas.php" class="btn btn-dark" role="button" aria-pressed="true">Ver notas</a>
                     </div>
                 </form>
-                <a href="../crud_not/index_notas.php" class="btn btn-secondary" role="button" aria-pressed="true">Ver notas</a>
             </div>
         </div>
     </div>

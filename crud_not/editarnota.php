@@ -2,7 +2,7 @@
 include_once('../conexion.php');
 include_once('../crud_est/template/footer.php');
 include_once('../crud_est/template/header.php');
-$cod_not = $_SESSION['nota'];
+$cod_not = $_SESSION['cod_nota'];
 $curso = $_SESSION['curso'];
 $consulta = pg_query("select * from notas where nota='$cod_not' and cod_cur='$curso'");
 $objnota = pg_fetch_object($consulta);
@@ -18,6 +18,16 @@ $objnota = pg_fetch_object($consulta);
                 ?>
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>Inconsistencia!</strong> Debe tener en cuenta que la suma de los porcentajes debe ser no mayor a 100 %
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <?php 
+                }
+                ?> 
+                <?php 
+                    if(isset($_GET['mensaje']) and $_GET['mensaje'] == 'error2'){
+                ?>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Inconsistencia!</strong> La posición escogida ya esta ocupada.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php 
