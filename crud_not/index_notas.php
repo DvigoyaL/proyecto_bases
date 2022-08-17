@@ -5,7 +5,7 @@
     $year=$_SESSION['año'];
     $periodo=$_SESSION['periodo'];
     $curso = $_SESSION['curso'];
-    $consul_ncur = pg_query("select nomb_cur from cursos where cod_cur = '$curso' and year= '$year' and periodo='$periodo'");
+    $consul_ncur = pg_query("select nomb_cur from cursos where cod_cur = '$curso'");
     $nomb_cur = pg_fetch_object($consul_ncur);
  ?>
 
