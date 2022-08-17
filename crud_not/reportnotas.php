@@ -39,7 +39,7 @@
                             <th scope="col">Codigo</th>
                             <?php
                             $consulta = "select * from notas where cod_cur='$curso' and year= '$año' and periodo='$periodo' order by posicion";
-                            $consulta2 = "select sum(porcentaje) as definitiva from notas where cod_cur='$curso'";
+                            $consulta2 = "select sum(porcentaje) as definitiva from notas where cod_cur='$curso' and year= '$año' and periodo='$periodo'";
                             $obj2 = pg_fetch_object(pg_query($consulta2));
                             $resultado = pg_query($consulta);
                             while($obj = pg_fetch_object($resultado)){

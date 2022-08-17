@@ -19,8 +19,8 @@ $nombre = $_SESSION['nomb_doc'];
     <a class="navbar-brand" href="../materias.php">
     <img src="https://w7.pngwing.com/pngs/409/621/png-transparent-computer-icons-avatar-male-user-profile-others-logo-monochrome-silhouette.png" alt="Logo" style="width:40px;" class="rounded-pill">
     <?php echo $nombre ?> </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
   </div>
 </nav>
+
+
+
