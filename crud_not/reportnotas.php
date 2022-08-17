@@ -60,7 +60,7 @@
                                     ?>
                                     <td><?php echo $cod_est -> cod_est; ?></td>
                                     <?php 
-                                    $consulta3= pg_query("select valor from calificaciones c join notas n on c.nota=n.nota where c.cod_cur = '$curso' and c.year = '$año' and c.periodo = '$periodo' and cod_est= '$cod_est->cod_est'");
+                                    $consulta3= pg_query("select valor from calificaciones c join notas n on c.nota=n.nota where c.cod_cur = '$curso' and c.year = '$año' and c.periodo = '$periodo' and cod_est= '$cod_est->cod_est' order by posicion");
                                     while($obj = pg_fetch_object($consulta3)){ 
                                     ?>  
                                     <td><?php echo $obj -> valor; ?></td>
