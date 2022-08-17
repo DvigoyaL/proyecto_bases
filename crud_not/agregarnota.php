@@ -2,10 +2,12 @@
 include_once('../conexion.php');
 include_once('../crud_est/template/footer.php');
 include_once('../crud_est/template/header.php');
+$year=$_SESSION['año'];
+$periodo=$_SESSION['periodo'];
 $cod_nota= $_SESSION['cod_nota'];
 $curso = $_SESSION['curso'];
-$consulta = pg_query("select * from notas where nota='$cod_nota' and cod_cur='$curso'");
-$porcentajetot = pg_query("select sum(porcentaje) as suma from notas where cod_cur='$curso'");
+$consulta = pg_query("select * from notas where nota='$cod_nota' and cod_cur='$curso' and year= '$year' and periodo='$periodo'");
+$porcentajetot = pg_query("select sum(porcentaje) as suma from notas where cod_cur='$curso' and year= '$year' and periodo='$periodo'");
 $objporcent = pg_fetch_object($porcentajetot);
 $objnota = pg_fetch_object($consulta);
 if($objporcent->suma > 99){

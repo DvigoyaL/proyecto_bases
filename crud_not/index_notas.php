@@ -2,8 +2,10 @@
     include_once ("../conexion.php");
     include_once ("../crud_est/template/header.php");
     include_once ("../crud_est/template/footer.php");
+    $year=$_SESSION['año'];
+    $periodo=$_SESSION['periodo'];
     $curso = $_SESSION['curso'];
-    $consul_ncur = pg_query("select nomb_cur from cursos where cod_cur = '$curso'");
+    $consul_ncur = pg_query("select nomb_cur from cursos where cod_cur = '$curso' and year= '$year' and periodo='$periodo'");
     $nomb_cur = pg_fetch_object($consul_ncur);
  ?>
 
@@ -72,7 +74,7 @@
                         </thead>
                         <tbody>
                             <?php
-                                $consulta = "select * from notas where cod_cur = '$curso' order by posicion";
+                                $consulta = "select * from notas where cod_cur = '$curso' and year= '$year' and periodo='$periodo' order by posicion";
                                 $resultado = pg_query($consulta);
                                 while($obj = pg_fetch_object($resultado)){
                             ?>
