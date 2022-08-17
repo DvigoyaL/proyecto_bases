@@ -1,6 +1,8 @@
 <?php
 include_once("../conexion.php");
 session_start();
+$year=$_SESSION['año'];
+$periodo=$_SESSION['periodo'];
 $cod_nota= $_SESSION['cod_nota'];
 $cod_cur = $_SESSION['curso'];
 $desc_nota = $_POST['desc'];
@@ -18,7 +20,7 @@ if(pg_num_rows($consultapos) > 0){
         header('location:agregarnota.php?mensaje=error');
         exit();
     }else{
-        pg_query("insert into notas (desc_nota,porcentaje,posicion,cod_cur) values ('$desc_nota',$porcentaje,$posicion,'$cod_cur')");
+        pg_query("insert into notas (desc_nota,porcentaje,posicion,cod_cur,year,periodo) values ('$desc_nota',$porcentaje,$posicion,'$cod_cur','$year','$periodo')");
         header('location:index_notas.php?mensaje=registrado');
         exit();
     }
