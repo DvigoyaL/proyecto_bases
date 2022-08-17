@@ -23,7 +23,7 @@
                         <thead>
                             <th scope="col"></th>
                         <?php
-                                $consulta = "select * from notas where cod_cur='$curso'";
+                                $consulta = "select * from notas where cod_cur='$curso' order by posicion";
                                 $resultado = pg_query($consulta);
                                 while($obj = pg_fetch_object($resultado)){
                             ?>
