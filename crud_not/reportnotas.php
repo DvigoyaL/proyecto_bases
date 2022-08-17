@@ -6,9 +6,8 @@
  $curso = $_SESSION['curso'];
  $año = $_SESSION['año'];
  $periodo = $_SESSION['periodo'];
- $con = "select nota from notas where cod_cur = '$curso'";
 
- $contnotas = pg_query($con);
+ 
 ?>
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -23,7 +22,7 @@
                         <thead>
                             <th scope="col"></th>
                         <?php
-                                $consulta = "select * from notas where cod_cur='$curso' order by posicion";
+                                $consulta = "select * from notas where cod_cur='$curso' and year= '$year' and periodo='$periodo' order by posicion";
                                 $resultado = pg_query($consulta);
                                 while($obj = pg_fetch_object($resultado)){
                             ?>
@@ -39,7 +38,7 @@
                             </tr>
                             <th scope="col">Codigo</th>
                             <?php
-                            $consulta = "select * from notas where cod_cur='$curso'";
+                            $consulta = "select * from notas where cod_cur='$curso' and year= '$year' and periodo='$periodo' order by posicion";
                             $consulta2 = "select sum(porcentaje) as definitiva from notas where cod_cur='$curso'";
                             $obj2 = pg_fetch_object(pg_query($consulta2));
                             $resultado = pg_query($consulta);

@@ -8,10 +8,10 @@ $cod_cur = $_SESSION['curso'];
 $desc_nota = $_POST['desc'];
 $porcentaje = $_POST['porcent'];
 $posicion = $_POST['posic'];
-$consulta = pg_query("select SUM(porcentaje) as sumando from notas where cod_cur = '$cod_cur'");
+$consulta = pg_query("select SUM(porcentaje) as sumando from notas where cod_cur = '$cod_cur' and year= '$year' and periodo='$periodo'");
 $tot_porcent = pg_fetch_object($consulta);
 $suma = $porcentaje + $tot_porcent->sumando;
-$consultapos = pg_query("select * from (select posicion from notas where posicion = $posicion) as tabla where posicion = any (select posicion from notas where cod_cur = '$cod_cur') ");
+$consultapos = pg_query("select * from (select posicion from notas where posicion = $posicion) as tabla where posicion = any (select posicion from notas where cod_cur = '$cod_cur' and year= '$year' and periodo='$periodo') ");
 if(pg_num_rows($consultapos) > 0){
     header('location:editarnota.php?mensaje=error2');
     exit();
